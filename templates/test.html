@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> Meet2u</title>
+
+        <!-- ALL CSS -->
+        <!-- CSS only -->
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/font-awesome.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/font.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/owl.carousel.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/owl.theme.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/animate.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/slick.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/flaticon.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/settings.css'%}">
+        <link rel="stylesheet"  href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="preconnect"  href="https://fonts.gstatic.com">
+		    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet"  href="{% static 'css/style.css'%}" >
+        <link rel="stylesheet"  href="{% static 'css/preset.css'%}" >
+        <link rel="stylesheet"  href="{% static 'css/responsive.css'%}">
+        <!-- Favicon Icon -->
+        <link rel="icon"  type="image/png" href="{%static 'images/favicon.png'%}">
+        <!-- Favicon Icon -->
+        <style>
+          .headlgin{
+             background-color: rgb(134, 191, 219);
+             padding: 9px 0px 0px 9px;
+          }
+          .nameloogo{
+            font-size: 40px;
+            color: white;
+
+          }
+        	</style>
+    </head>
+    <body>
+
+        <!--PRELOADER START-->
+        <div class="preloader">
+            <div class="loader">
+                <img src=" {%static 'images/loader.gif'%}" alt="">
+            </div>
+        </div>
+        <!--PRELOADER END-->
+
+        <!--HEADER START-->
+<div class="container">
+
+
+
+        <header class="header isSticky" id="header">
+          <div class="headlgin">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2 noPaddingLeft">
+                        <div class="logo">
+                            <a href="{%url 'home' %}" class="nameloogo">Mee2u</a>
+                        </div>
+                        <div class="logo logoText hidden">
+                            <h1><a href="{%url 'home' %}">Meet2u</a></h1>
+                        </div>
+                        <div class="stickyLogo">
+                            <a href="{%url 'home' %}"><img src="{%static 'images/flogo.png'%}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <nav class="mainMenu">
+                            <div class="mobileBar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+
+
+                            <ul>
+                              {% if user.is_authenticated %}
+                              <li> <a href="{% url 'posts:create'%}">Post</a> </li>
+                              <li> <a href="{% url 'groups:all' %}">Groups</a> </li>
+                              <li> <a href="{% url 'groups:create'%}">Create Grops</a> </li>
+                              <li> <a href="{% url 'accounts:logout'%}">Log out🔒</a> </li>
+                              {% else %}
+                              <li class="scroll has-menu-items active"><a href="{%url 'home' %}">Home </li>
+                              <li class="scroll"><a href="#about">About us</a></li>
+                              
+                              <li class="scroll"><a href="#ourwork">Groups</a></li>
+                              <li class="scroll has-menu-items"><a href="">Blog</a></li>
+                              <li class="scroll"><a href="#contact">Ask me?</a></li>
+                              <li class="scroll"><a href="{% url 'accounts:login'%}">Log-in💡</a></li>
+                              <li class="scroll"><a href="{% url 'accounts:signup'%}">Sign-up🔐</a></li>
+                              {% endif %}
+                          </ul>
+
+                        </nav>
+                    </div>
+                    <div class="col-md-2 hidden-sm md_class noPaddingRight">
+                      <div class="callus">
+                          <p></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </header>
+        </div>
+        <div class="container">
+          <div class="jumbotron">
+            <h1>LOGGED IN</h1>
+          </div>
+        </div>
+
+        <!--HEADER END-->
+
+                <!-- ALL JS -->
+                <script  src="{%static 'js/jquery.js'%}"></script>
+                <script  src="{%static 'js/bootstrap.js'%}"></script>
+                <script  src="{%static 'js/owl.carousel.js'%}"></script>
+                <script  src="{%static 'js/slick.js'%}"></script>
+                <script  src="{%static 'js/jquery.themepunch.revolution.min.js'%}"></script>
+                <script  src="{%static 'js/jquery.themepunch.tools.min.js'%}"></script>
+                <script  src="{%static 'js/jquery.parallax-1.1.3.js'%}"></script>
+                <script  src="{%static 'js/jquery.localscroll-1.2.7-min.js'%}"></script>
+                <script  src="{%static 'js/jquery.scrollTo-1.4.2-min.js'%}"></script>
+                <script  src="{%static 'js/theme.js'%}"></script>
+
+                <!-- JavaScript Bundle with Popper -->
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+            </body>
+        </html>

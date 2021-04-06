@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+			@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+		</style>
+        <title> Mee2u</title>
+
+        <!-- ALL CSS -->
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/font-awesome.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/font.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/owl.carousel.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/owl.theme.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/animate.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/slick.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/flaticon.css'%}">
+        <link rel="stylesheet"  href="{% static 'css/settings.css'%}">
+        <link rel="stylesheet"  href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="preconnect"  href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet"  href="{% static 'css/signup.css'%}" >
+        <link rel="stylesheet"  href="{% static 'css/style.css'%}" >
+        <link rel="stylesheet"  href="{% static 'css/preset.css'%}" >
+        <link rel="stylesheet"  href="{% static 'css/responsive.css'%}">
+
+
+        <!-- Favicon Icon -->
+        <link rel="icon"  type="image/png" href="{%static 'images/favicon.png'%}">
+        <!-- Favicon Icon -->
+    </head>
+    <body>
+
+        <!--PRELOADER START-->
+        <div class="preloader">
+            <div class="loader">
+                <img src=" {%static 'images/loader.gif'%}" alt="">
+            </div>
+        </div>
+        <!--PRELOADER END-->
+
+        <!--HEADER START-->
+        <header class="header isSticky" id="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2 noPaddingLeft">
+                        <div class="logo">
+                            <a href="{%url 'home' %}"><img src="{%static 'images/logo.png'%}" alt=""></a>
+                        </div>
+                        <div class="logo logoText hidden">
+                            <h1><a href="{%url 'home' %}">Meet2u</a></h1>
+                        </div>
+                        <div class="stickyLogo">
+                            <a href="{%url 'home' %}"><img src="{%static 'images/flogo.png'%}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <nav class="mainMenu">
+                            <div class="mobileBar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <ul>
+                              {% if user.is_authenticated %}
+                              <li class="scroll has-menu-items active"><a href="{%url 'home' %}">Home </li>
+                              <li class="scroll"><a href="#about">About us</a></li>
+                              <li> <a href="{% url 'posts:create'%}">Post</a> </li>
+                              <li> <a href="{% url 'groups:all' %}">Groups</a> </li>
+                              <li> <a href="{% url 'groups:create'%}">Create Grops</a> </li>
+                              <li class="scroll has-menu-items"><a href="">Blog</a></li>
+                              <li class="scroll"><a href="#contact">Ask me?</a></li>
+                              <li> <a href="{% url 'accounts:logout'%}">Log out🔒</a> </li>
+                              {% else %}
+                              <li class="scroll has-menu-items active"><a href="{%url 'home' %}">Home </li>
+                              <li class="scroll"><a href="#about">About us</a></li>
+                              <li class="scroll"><a href="#team">Team</a></li>
+                              <li class="scroll"><a href="{% url 'groups:all' %}">Groups</a></li>
+                              <li class="scroll has-menu-items"><a href="">Blog</a></li>
+                              <li class="scroll"><a href="#contact">Ask me?</a></li>
+                              <li class="scroll"><a href="{% url 'accounts:login'%}">Log-in💡</a></li>
+                              <li class="scroll"><a href="{% url 'accounts:signup'%}">Sign-up🔐</a></li>
+                              {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-2 hidden-sm md_class noPaddingRight">
+                        <div class="callus">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--HEADER END-->
+
+
+        <!--SLIDER START-->
+        <section class="slider slider2" id="slider">
+            <div class="tp-banner">
+                <ul>
+                    <li data-transition="cube" data-slotamount="4" data-masterspeed="1000">
+                        <img src="{%static 'images/slider/s21.jpg'%}"  alt="">
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="-40"
+                             data-speed="1600"
+                             data-start="1000"
+                             data-easing="easeInOutCubic">
+                            <div class="revCon">
+                                <h5 class="text-uppercase color_white">we connect you to the world of Music</h5>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="35"
+                             data-speed="2000"
+                             data-start="1500"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon">
+                                <h2 class="lead color_white">Go share your Nodes<h2>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="148"
+                             data-speed="2000"
+                             data-start="2000"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon revBtn home_page2">
+                                <a href="#" class="bes_button2"><span>Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-transition="cube" data-slotamount="4" data-masterspeed="1000">
+                        <img src="{%static 'images/slider/s22.jpg'%}"  alt="">
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="-40"
+                             data-speed="1600"
+                             data-start="1000"
+                             data-easing="easeInOutCubic">
+                            <div class="revCon">
+                                <h5 class="text-uppercase color_white">we connect you to the Nature</h5>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="35"
+                             data-speed="2000"
+                             data-start="1500"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon">
+                                <h2 class="lead color_white">Leave the road, take the trails.</h2>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="148"
+                             data-speed="2000"
+                             data-start="2000"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon revBtn home_page2">
+                                <a href="#" class="bes_button2"><span>Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-transition="cube" data-slotamount="4" data-masterspeed="1000">
+                        <img src="{%static 'images/slider/s23.jpg'%}"  alt="">
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="-40"
+                             data-speed="1600"
+                             data-start="1000"
+                             data-easing="easeInOutCubic">
+                            <div class="revCon">
+                                <h5 class="text-uppercase color_white">we connect you to the Technology</h5>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="35"
+                             data-speed="2000"
+                             data-start="1500"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon">
+                                <h2 class="lead color_white">Adventure starts here.</h2>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="148"
+                             data-speed="2000"
+                             data-start="2000"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon revBtn home_page2">
+                                <a href="#" class="bes_button2"><span>Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-transition="cube" data-slotamount="4" data-masterspeed="1000">
+                        <img src="{%static 'images/slider/s24.jpg'%}"  alt="">
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="-40"
+                             data-speed="1600"
+                             data-start="1000"
+                             data-easing="easeInOutCubic">
+                            <div class="revCon">
+                                <h5 class="text-uppercase color_white">we connect you to the sports</h5>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="35"
+                             data-speed="2000"
+                             data-start="1500"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon">
+                                <h2 class="lead color_white">Adventure starts here.</h2>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="148"
+                             data-speed="2000"
+                             data-start="2000"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon revBtn home_page2">
+                                <a href="#" class="bes_button2"><span>Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-transition="cube" data-slotamount="7" data-masterspeed="1000">
+                        <img src="{%static 'images/slider/s25.jpg'%}"  alt="">
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="-40"
+                             data-speed="1600"
+                             data-start="1000"
+                             data-easing="easeInOutCubic">
+                            <div class="revCon">
+                                <h5 class="text-uppercase color_white">we connect you to the literature</h5>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="35"
+                             data-speed="2000"
+                             data-start="1500"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon">
+                                <h2 class="lead color_white">Adventure starts here.</h2>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="148"
+                             data-speed="2000"
+                             data-start="2000"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon revBtn home_page2">
+                                <a href="#" class="bes_button2"><span>Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-transition="cube" data-slotamount="7" data-masterspeed="1000">
+                        <img src="{%static 'images/slider/s26.jpg'%}"  alt="">
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="-40"
+                             data-speed="1600"
+                             data-start="1000"
+                             data-easing="easeInOutCubic">
+                            <div class="revCon">
+                                <h5 class="text-uppercase color_white">we connect you to the Art</h5>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="35"
+                             data-speed="2000"
+                             data-start="1500"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon">
+                                <h2 class="lead color_white">Adventure starts here.</h2>
+                            </div>
+                        </div>
+                        <div class="tp-caption sfb"
+                             data-x="center"
+                             data-y="center"
+                             data-hoffset="0"
+                             data-voffset="148"
+                             data-speed="2000"
+                             data-start="2000"
+                             data-easing="Power4.easeOut">
+                            <div class="revCon revBtn home_page2">
+                                <a href="#" class="bes_button2"><span>Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></span></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mouseSlider">
+                <a href="#team" class="normal"><img src="{% static 'images/mouse.png'%}" alt=""></a>
+                <a href="#team" class="hover"><img src="{% static 'images/mouseh2.png'%}" alt=""></a>
+            </div>
+        </section>
+        <!--SLIDER END-->
+
+        <!--ABOUT START-->
+        <section class="about about2" id="about">
+            <div class="perelaxBg1"></div>
+            <div class="aboutTop home_page2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="abcontentT">
+                                <h5 class="text-uppercase magenta bold">meet2u</h5>
+                                <h3 class="lead light">
+                                    Yashwanth
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abBigtitle home_page2">
+                <h1 class="lead">Connect.Share.Explore</h1>
+            </div>
+            <div class="aboutBottom home_page2">
+                <div class="perelaxBg2"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-left">
+                            <div class="abcontentB noPadding">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <h5 class="lead bold">We take a bottom-line approach to each project.</h5>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h3 class="light">
+                                            Our clients consistently see increased traffic, enhanced brand loyalty and new leads thanks to our work.
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ourServices">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="singleService">
+                                <div class="serImg">
+                                    <img src="{%static 'images/services/1.png'%}" alt="">
+                                </div>
+                                <h6 class="lead text-uppercase bold">dev</h6>
+                                <p>Yashwanth</p>
+                                <a href="#" class="learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="singleService">
+                                <div class="serImg">
+                                    <img src="{%static 'images/services/2.png'%}" alt="">
+                                </div>
+                                <h6 class="lead text-uppercase bold">music</h6>
+                                <p>Yashwanth</p>
+                                <a href="#" class="learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="singleService">
+                                <div class="serImg">
+                                    <img src="{%static 'images/services/3.png'%}" alt="">
+                                </div>
+                                <h6 class="lead text-uppercase bold">digital</h6>
+                                <p>Yashwanth</p>
+                                <a href="#" class="learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-sm-4">
+                            <div class="singleService">
+                                <div class="serImg">
+                                    <img src="{%static 'images/services/4.png'%}" alt="">
+                                </div>
+                                <h6 class="lead text-uppercase bold">Food</h6>
+                                <p>Yashwanth</p>
+                                <a href="#" class="learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="singleService">
+                                <div class="serImg">
+                                    <img src="{%static 'images/services/5.png'%}" alt="">
+                                </div>
+                                <h6 class="lead text-uppercase bold">Travel</h6>
+                                <p>Yashwanth</p>
+                                <a href="#" class="learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="singleService">
+                                <div class="serImg">
+                                    <img src="{%static 'images/services/6.png'%}" alt="">
+                                </div>
+                                <h6 class="lead text-uppercase bold">Health</h6>
+                                <p>Yashwanth</p>
+                                <a href="#" class="learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <a href="#" class="bes_button2">Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+<path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                        </div>
+                </div>
+            </div>
+
+            </div>
+        </section>
+        <!--ABOUT END-->
+        <!--WHAT WE DO START-->
+        <section class="whatwe home_page2" id="whatwe">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1 text-center">
+                        <div class="wedoContent">
+                            <h5 class="text-uppercase color_white bold">what we do</h5>
+                            <h2 class="lead color_white">we help businesses evolve <span>&</span> grow.</h2>
+                            <a href="#" class="bes_button2">Learn more about us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+<path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--WHAT WE DO END-->
+
+        <!--OUR WORK START-->
+        <section class="ourwork" id="ourwork">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="sectionTitle bigTitle">
+                            <h5 class="magenta text-uppercase bold">meet the team</h5>
+                            <h2 class="lead">we create masterpieces.</h2>
+                            <p>We believe in coming up with original ideas and turning them into digital work that is both innovative and measurable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8 noPadding">
+                        <div class="single_folio single_folio2">
+                            <a href="work-detail.html">
+                                <div class="polioThumb">
+                                    <div class="overlayHover"></div>
+                                    <img src="{%static 'images/work/h2/1.jpg'%}" alt="">
+                                </div>
+                            </a>
+                            <div class="folio_hover2">
+                                <h6 class="color_yellow text-uppercase bold">Recent Casestudy</h6>
+                                <h3 class="lead color_white semi_Bold">Adventure Begins Here.</h3>
+                                <div class="workTag">
+                                    <a href="#" tabindex="0">Branding</a>/
+                                    <a href="#" tabindex="0">Web Design</a>
+                                </div>
+                                <a class="work_btn" href="work-detail.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 noPadding">
+                        <div class="single_folio single_folio2">
+                            <a href="work-detail.html">
+                                <div class="polioThumb">
+                                    <div class="overlayHover"></div>
+                                    <img src="{%static 'images/work/h2/2.jpg'%}" alt="">
+                                </div>
+                            </a>
+                            <div class="folio_hover2">
+                                <h6 class="color_yellow text-uppercase bold">Recent Casestudy</h6>
+                                <h3 class="lead color_white semi_Bold">Design The Future</h3>
+                                <div class="workTag">
+                                    <a href="#" tabindex="0">Branding</a>/
+                                    <a href="#" tabindex="0">Web Design</a>
+                                </div>
+                                <a class="work_btn" href="work-detail.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 noPadding">
+                        <div class="single_folio single_folio2">
+                            <a href="work-detail.html">
+                                <div class="polioThumb">
+                                    <div class="overlayHover"></div>
+                                    <img src="{%static 'images/work/h2/3.jpg'%}" alt="">
+                                </div>
+                            </a>
+                            <div class="folio_hover2">
+                                <h6 class="color_yellow text-uppercase bold">Recent Casestudy</h6>
+                                <h3 class="lead color_white semi_Bold">Design The Future</h3>
+                                <div class="workTag">
+                                    <a href="#" tabindex="0">Branding</a>/
+                                    <a href="#" tabindex="0">Web Design</a>
+                                </div>
+                                <a class="work_btn" href="work-detail.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 noPadding">
+                        <div class="single_folio single_folio2">
+                            <a href="work-detail.html">
+                                <div class="polioThumb">
+                                    <div class="overlayHover"></div>
+                                    <img src="{%static 'images/work/h2/4.jpg'%}" alt="">
+                                </div>
+                            </a>
+                            <div class="folio_hover2">
+                                <h6 class="color_yellow text-uppercase bold">Recent Casestudy</h6>
+                                <h3 class="lead color_white semi_Bold">Design The Future</h3>
+                                <div class="workTag">
+                                    <a href="#" tabindex="0">Branding</a>/
+                                    <a href="#" tabindex="0">Web Design</a>
+                                </div>
+                                <a class="work_btn" href="work-detail.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 noPadding">
+                        <div class="single_folio single_folio2">
+                            <a href="work-detail.html">
+                                <div class="polioThumb">
+                                    <div class="overlayHover"></div>
+                                    <img src="{%static 'images/work/h2/5.jpg'%}" alt="">
+                                </div>
+                            </a>
+                            <div class="folio_hover2">
+                                <h6 class="color_yellow text-uppercase bold">Recent Casestudy</h6>
+                                <h3 class="lead color_white semi_Bold">Design The Future</h3>
+                                <div class="workTag">
+                                    <a href="#" tabindex="0">Branding</a>/
+                                    <a href="#" tabindex="0">Web Design</a>
+                                </div>
+                                <a class="work_btn" href="work-detail.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--OUR WORK END-->
+
+        <!--CHOOSE US START-->
+        <section class="chooseus home_page2" id="chooseus">
+            <div class="perelaxBg3"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="sectionTitle bigTitle2">
+                            <h5 class="magenta text-uppercase bold">why choose us?</h5>
+                            <h2 class="lead">we dont just build websites, we build brands.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="chooseUsContent">
+                            <h3 class="magenta normal">Our team works shoulder-to- shoulder, ensuring a project is never created in isolation.</h3>
+                            <p>Every project has its own unique goals and vision. Whatever your project demands, our extended network of strategists, creatives and technology specialists is always eager to pitch in. We know it helps to know good people.</p>
+                            <div class="signatureandname">
+                                <h4>Roger Powell</h4>
+                                <img src="images/signature.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="imagesDiv chooseUsImg">
+                            <img src="{%static 'images/choosejpg'%}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--CHOOSE US END-->
+
+        <!--TESTMONIAL START-->
+        <section class="testmonialSec home_page2 overlayw10" id="testmonialSec">
+            <div class="perelaxBg4"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="testmonialCaro" class="home_page2">
+                            <div class="singleTestmn">
+                                <p>There are design companies, and then there are user experience, design, consulting, interface design, brilliant, and professional. By far one of the worlds best known brands.</p>
+                                <div class="testAut">
+                                    <h4>Alan Martinez</h4>
+                                    <p>New york - USA</p>
+                                </div>
+                            </div>
+                            <div class="singleTestmn">
+                                <p>There are design companies, and then there are user experience, design, consulting, interface design, brilliant, and professional. By far one of the worlds best known brands.</p>
+                                <div class="testAut">
+                                    <h4>Alan Martinez</h4>
+                                    <p>New york - USA</p>
+                                </div>
+                            </div>
+                            <div class="singleTestmn">
+                                <p>There are design companies, and then there are user experience, design, consulting, interface design, brilliant, and professional. By far one of the worlds best known brands.</p>
+                                <div class="testAut">
+                                    <h4>Alan Martinez</h4>
+                                    <p>New york - USA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--TESTMONIAL END-->
+
+        <!--BLOG START-->
+        <section class="blogSection home_page2" id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="sectionTitle bigTitle2">
+                            <h5 class="text-uppercase bold">BLOGS AND INSIGHTS</h5>
+                            <h2 class="lead">Our thoughts</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 noPadding">
+                        <div class="singleBlog">
+                            <div class="blogThumb">
+                                <img src="images/blog/1.jpg" alt="">
+                            </div>
+                            <div class="blogDec">
+                                <div class="blogDate">January, 11, 2021</div>
+                                <h2 class="blogTitle"><a href="blog-detail.html">How to Approach Social Media as a Small Business.</a></h2>
+                                <div class="bperaDiv">
+                                    <p>Everti doctus est et, ei vis habemus tibique. Scriptorem theophrastus in sit. Stet gubergren ex per, denique consetetur cotidieque ad nec. </p>
+                                </div>
+                                <div class="blogBott">
+                                    <div class="bauthor">By<a href="#">John Doe</a></div>
+                                    <div class="blogComs"><img src="images/comment.png" alt=""><a href="#">2 Comments</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 noPadding">
+                        <div class="singleBlog">
+                            <div class="blogThumb">
+                                <img src="images/blog/2.jpg" alt="">
+                            </div>
+                            <div class="blogDec">
+                                <div class="blogDate">January, 11, 2021</div>
+                                <h2 class="blogTitle"><a href="blog-detail.html">Have there been any good startups founded since 2016?</a></h2>
+                                <div class="bperaDiv">
+                                    <p>Elit facer constituto ex vis, te vide pereu rationibus nec. Nec iriure commune fastidii.</p>
+                                </div>
+                                <div class="blogBott">
+                                    <div class="bauthor">By<a href="#">John Doe</a></div>
+                                    <div class="blogComs"><img src="images/comment.png" alt=""><a href="#">2 Comments</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 noPadding">
+                        <div class="singleBlog">
+                            <div class="blogThumb">
+                                <img src="images/blog/3.jpg" alt="">
+                            </div>
+                            <div class="blogDec">
+                                <div class="blogDate">December, 20, 2016</div>
+                                <h2 class="blogTitle"><a href="blog-detail.html">Design & Usability From A Marketing Perspective.</a></h2>
+                                <div class="bperaDiv">
+                                    <p>Corpora explicari as reeqe intel legam temporibus in eum, te ius recusabo argumentum repudiandae.</p>
+                                </div>
+                                <div class="blogBott">
+                                    <div class="bauthor">By<a href="#">John Doe</a></div>
+                                    <div class="blogComs"><img src="images/comment.png" alt=""><a href="#">2 Comments</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--BLOG END-->
+
+        <!--SAY HELLO START-->
+        <section class="sayhello" id="sayhello">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="sectionTitle bigTitle2">
+                            <h5 class="text-uppercase bold">we would love to hear from you</h5>
+                            <h2 class="lead">say hello!</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="singleSay saypaddingR text-center">
+                            <div class="sayThumb">
+                                <img src="images/say/1.jpg" alt="">
+                                <h3 class="text-uppercase">San fransisco</h3>
+                            </div>
+                            <div class="sayDec">
+                                <h6 class="bold text-uppercase">san fransisco office</h6>
+                                <p>70 Greenview Ave.</p>
+                                <p>Temple Hills, MD 20748</p>
+                                <h6 class="bold">1.800.987.6543</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="singleSay saypaddingl text-center">
+                            <div class="sayThumb">
+                                <img src="images/say/2.jpg" alt="">
+                                <h3 class="text-uppercase">new york</h3>
+                            </div>
+                            <div class="sayDec">
+                                <h6 class="bold text-uppercase">new york office</h6>
+                                <p>70 Greenview Ave.</p>
+                                <p>Temple Hills, MD 20748</p>
+                                <h6 class="bold">1.800.987.6543</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--SAY HELLO END-->
+        <!--CONTACT START-->
+        <section class="contact home_page2" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="contactInner">
+                            <h3 class="magenta light">Have a question? or just say hello!</h3>
+                            <div class="contactForm">
+                                <form action="#" method="post" id="contactForm">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="single_form home_page2">
+                                                <label for="con_name">Name:</label>
+                                                <input type="text" name="con_name" id="con_name" class="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="single_form home_page2">
+                                                <label for="con_phone">Phone:</label>
+                                                <input type="text" name="con_phone" id="con_phone" class="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="single_form home_page2">
+                                                <label for="con_email">Email:</label>
+                                                <input type="email" name="con_email" id="con_email" class="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="single_form home_page2">
+                                                <label for="con_company">Company:</label>
+                                                <input type="text" name="con_company" id="con_company" class="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="single_form home_page2">
+                                                <label for="con_msg">Message:</label>
+                                                <textarea id="con_msg" name="con_msg" class="required"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 text-center">
+                                            <input type="submit" value="SEND" id="con_submit" class="bes_button2">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--CONTACT END-->
+
+        <!--FOOTER START-->
+        <footer class="footer bggreay" id="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <aside class="widget">
+                            <div class="textWidget">
+                                <div class="flogow">
+                                    <div class="flogo">
+                                        <a href="{%url 'home' %}l"><img src="images/flogo.png" alt=""></a>
+                                    </div>
+                                    <div class="logo logoText hidden">
+                                        <h1><a href="{%url 'home' %}">Mee2u</a></h1>
+                                    </div>
+                                </div>
+                                <h3 class="widgetTitle">About <b>Mee2u</b></h3>
+                                <p>Yashwanth</p>
+                                <div class="socialIcon">
+                                    <a class="fb" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a class="tw" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a class="gp" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a class="dr" href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a class="be" href="#"><i class="fa fa-behance"></i></a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-sm-6">
+                        <aside class="widget">
+                            <div class="newsletterwid">
+                                <h3 class="widgetTitle">Newsletter <b>Signup</b></h3>
+                                <div class="newsletter">
+                                    <form action="#" method="post" id="subscriptForm">
+                                        <input type="email" name="sub_email" id="sub_email" placeholder="Enter your email address.">
+                                        <input type="submit" name="sub_submit" id="sub_submit" value="SUBSCRIBE">
+                                    </form>
+                                </div>
+                                <div class="fooInfo">
+                                    <p><i class="flaticon-pin"></i><b>Yashwanth</p>
+                                    <p><i class="flaticon-technology"></i><b>Yashwanth</b></p>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--FOOTER END-->
+
+        <!--COPY RIGHT START-->
+        <section class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p class="copyPera">&COPY; 2021 Meet2u. All Rights Reserved. YVSP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--COPY RIGHT END-->
+
+        <div class="subscriptionSuccess">
+            <div class="subsNotice">
+                <i class="fa fa-thumbs-o-up closers"></i>
+                <div class="clearfix"></div>
+                <p class="closers">Subscription Request Successfully placed!</p>
+            </div>
+        </div>
+        <div class="contactSuccess">
+            <div class="consNotice">
+                <i class="fa fa-thumbs-o-up closers"></i>
+                <div class="clearfix"></div>
+                <p class="closers">Your Message successfully sent!</p>
+            </div>
+        </div>
+        <a id="backToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+
+        <script  src="{%static 'js/jquery.js'%}"></script>
+        <script  src="{%static 'js/bootstrap.js'%}"></script>
+        <script  src="{%static 'js/owl.carousel.js'%}"></script>
+        <script  src="{%static 'js/slick.js'%}"></script>
+        <script  src="{%static 'js/jquery.themepunch.revolution.min.js'%}"></script>
+        <script  src="{%static 'js/jquery.themepunch.tools.min.js'%}"></script>
+        <script  src="{%static 'js/jquery.parallax-1.1.3.js'%}"></script>
+        <script  src="{%static 'js/jquery.localscroll-1.2.7-min.js'%}"></script>
+        <script  src="{%static 'js/jquery.scrollTo-1.4.2-min.js'%}"></script>
+        <script  src="{%static 'js/theme.js'%}"></script>
+        <!-- JavaScript Bundle with Popper -->
+    </body>
+</html>
